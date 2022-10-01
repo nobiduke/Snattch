@@ -1,24 +1,16 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image } from 'react-native';
-import BottomBar from './BottomBar';
-import Home from './Home';
 import Trivia from './Trivia';
+import LoginPage from './LoginPage';
 import { useState } from 'react';
+import {app} from './firebase';
+import { getAuth } from 'firebase/auth';
+const auth = getAuth(app);
 
 export default function App() {
 
   const [theme, setTheme] = useState('light');
-  const [menu, setMenu] = useState(<Home></Home>);
-
-  function menuChange(menuName){
-    if(menuName == 'trivia'){
-      setMenu(<Trivia></Trivia>);
-    } else if(menuName == 'profile'){
-      setMenu(<View></View>);
-    } else{
-      setMenu(<Home></Home>)
-    }
-  }
+  const [menu, setMenu] = useState(<LoginPage auth={auth} next={setMenu}></LoginPage>);
 
   return (
     <View style={styles.container}>
@@ -27,8 +19,6 @@ export default function App() {
 
       {menu}
 
-      <BottomBar theme={theme} clicked={menuChange}></BottomBar>
-      
       <StatusBar style="auto" />
     </View>
   );
