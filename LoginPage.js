@@ -3,11 +3,17 @@ import { useState } from 'react';
 import {login} from './firebase_create';
 import {signOn} from './firebase_signin';
 import {View, Text, TextInput, Button, StyleSheet} from 'react-native';
-import { AuthCredential } from 'firebase/auth';
+import Main from './Main';
 
 export default function LoginPage({auth, next}) {
   const [username, changeUsername] = useState("Username");
   const [password, changePassword] = useState("Password");
+
+  function trigger(){
+    if(auth.currentUser != null){
+      next(true)
+    }
+  }
   
   const styles = StyleSheet.create({
     title: {
@@ -27,6 +33,7 @@ export default function LoginPage({auth, next}) {
       alignItems:'center'
     },
     loginButtons:{
+      marginTop: 15,
       alignItems: 'center',
       justifyContent: 'center',
       paddingVertical: 12,
@@ -41,8 +48,8 @@ export default function LoginPage({auth, next}) {
         <Text style={styles.title}>Welcome!</Text>
         <TextInput style={styles.loginBoxes} onChangeText={changeUsername} value={username}></TextInput>
         <TextInput style={styles.loginBoxes} onChangeText={changePassword} value={password}></TextInput>
-        <Button style={styles.loginButtons} title='Sign In' onPress={()=>{signOn(auth, username, password)}}></Button>
-        <Button style={styles.loginButtons} title='Create Account' onPress={()=>{login(auth, username, password)}}></Button>
+        <Button style={styles.loginButtons} title='Sign In' onPress={()=>{signOn(auth, username, password); trigger()}}></Button>
+        <Button style={styles.loginButtons} title='Create Account' onPress={()=>{login(auth, username, password); trigger()}}></Button>
     </View>
   )
 }

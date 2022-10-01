@@ -1,16 +1,25 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image } from 'react-native';
-import Trivia from './Trivia';
+import Main from './Main';
 import LoginPage from './LoginPage';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {app} from './firebase';
 import { getAuth } from 'firebase/auth';
-const auth = getAuth(app);
 
 export default function App() {
 
+  const [auth, setAuth] = useState(getAuth(app));
+  const [canChange, setCanChange] = useState(false);
+
   const [theme, setTheme] = useState('light');
-  const [menu, setMenu] = useState(<LoginPage auth={auth} next={setMenu}></LoginPage>);
+  const [menu, setMenu] = useState(<LoginPage auth={auth} next={setCanChange}></LoginPage>);
+
+  useEffect(()=>{
+    if(canChange){
+      setMenu(<Main auth={auth}></Main>);
+      setCanChange(false);
+    }
+  }, [canChange])
 
   return (
     <View style={styles.container}>

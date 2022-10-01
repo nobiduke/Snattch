@@ -12,9 +12,6 @@ export default function Trivia() {
         <Text>
           yah
         </Text>
-        <TextInput onChangeText={changeUsername} value={username}></TextInput>
-        <TextInput onChangeText={changePassword} value={password}></TextInput>
-        <Button title='click' onPress={()=>{login(username, password)}}></Button>
     </View>
   )
 }
