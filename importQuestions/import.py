@@ -2,9 +2,6 @@ from textwrap import indent
 import requests
 import json
 
-score = 0
-
-
 
 def extractData():
     request = requests.get("https://the-trivia-api.com/api/questions?limit=20&region=US")
