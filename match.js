@@ -6,27 +6,39 @@ const firebase = getAuth();
 
 onAuthStateChanged(user => {
     if (user) {
-        getUserData1(user.uid)
-        getUserData2(user.uid)
+        getUserScoreUser(user.uid)
+        getUserScoreScore(user.uid)
     }
 })
 
 
-function getUserData1(uid) {
+export function getUserScoreUser(uid) {
     firebase.database().ref('users/' + uid).once("score", snap => {
         console.log(snap.val())
         return snap.val()
     })
 }
 
-function getUserData2(uid) {
+export function getUserScoreScore(uid) {
     firebase.database().ref('ranking/' + uid).once("score", snap => {
         console.log(snap.val())
         return snap.val()
     })
 }
 
-function setUserID(uid){
+export function updateScoreUser(uid, score){
+    var query = db.ref("user").orderByChild("uid").equalTo(uid);
+    query.once("child_added", function(snapshot){
+    snapshot.ref.update({score: score})
+    });
 
 }
 
+
+export function updateScoreRank(uid, score){
+    var query = db.ref("Rrank").orderByChild("uid").equalTo(uid);
+    query.once("child_added", function(snapshot){
+    snapshot.ref.update({score: score})
+    });
+
+}
