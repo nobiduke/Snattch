@@ -1,4 +1,5 @@
 import { createUserWithEmailAndPassword, getAuth} from "firebase/auth";
+import {writeUserData} from "firebase_database";
 
 export function login(auth, user, pass) {
     createUserWithEmailAndPassword(auth, user, pass)
@@ -11,3 +12,4 @@ export function login(auth, user, pass) {
     })
 }
 
+writeUserData("Josh", "Josh", "Male", 0);
