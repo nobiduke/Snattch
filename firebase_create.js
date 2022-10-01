@@ -5,13 +5,10 @@ const auth = getAuth(app);
 
 // create user
 
-function login() {
-
-    var userEmail = document.getElementById("email_field").value;
-    var userPass = document.getElementById("pass_field").value;
+async function login(user, pass) {
 
     try {
-        createUserWithEmailAndPassword(auth, userEmail, userPass)
+        createUserWithEmailAndPassword(auth, user, pass)
     }
     catch(error){
         console.log("There was an error: ${error}")

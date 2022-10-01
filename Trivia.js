@@ -1,11 +1,18 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import { useState } from 'react';
+import {login} from './firebase_create';
+import {View, Text, TextInput, TouchableOpacity} from 'react-native';
 
 export default function Trivia() {
+  const [username, setUsername] = useState("Username");
+  const [password, setPassword] = useState("Password");
+  
   return (
     <View>
         <Text>
-            Yeet
+            <TextInput value={username}></TextInput>
+            <TextInput value={password}></TextInput>
+            <TouchableOpacity onPress={()=>{login(username, password)}}></TouchableOpacity>
         </Text>
     </View>
   )
