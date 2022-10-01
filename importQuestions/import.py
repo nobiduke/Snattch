@@ -16,7 +16,7 @@ def extractData():
         dict["correctAnswer"] = currAnswer
         dict["IncorrectAnswers"] = currIncorrect
         listQuestions.append(dict)
-    jsonObj = json.dumps(listQuestions, indent=4)
+    jsonObj = json.dumps(listQuestions, indent='\t')
     print(jsonObj)
     return jsonObj
 
