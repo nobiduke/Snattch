@@ -6,20 +6,21 @@ const firebase = getAuth();
 
 onAuthStateChanged(user => {
     if (user) {
-        getUserScoreUser(user.uid)
-        getUserScoreScore(user.uid)
+        getUserScore(user.uid)
+        getUserRankScore(user.uid)
     }
+    
 })
 
 
-export function getUserScoreUser(uid) {
+export function getUserScore(uid) {
     firebase.database().ref('users/' + uid).once("score", snap => {
         console.log(snap.val())
         return snap.val()
     })
 }
 
-export function getUserScoreScore(uid) {
+export function getUserRankScore(uid) {
     firebase.database().ref('ranking/' + uid).once("score", snap => {
         console.log(snap.val())
         return snap.val()
