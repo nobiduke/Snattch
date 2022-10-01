@@ -1,19 +1,20 @@
+import { async } from "@firebase/util";
 import { createUserWithEmailAndPassword, getAuth} from "firebase/auth"
 
 const auth = getAuth(app);
 
-
 // create user
-createUserWithEmailAndPassword(auth, email, password).then((userCredential) => {
-    const user = userCredential.user;
-})
-.catch((error) => {
-    const errorCode = error.code
-    const errorMessage = error.message
 
-    if (errorCode == 'email-already-in-use'){
-        print("The account already exists.");
+function login() {
+
+    var userEmail = document.getElementById("email_field").value;
+    var userPass = document.getElementById("pass_field").value;
+
+    try {
+        createUserWithEmailAndPassword(auth, userEmail, userPass)
     }
-
-});
+    catch(error){
+        console.log("There was an error: ${error}")
+    }
+}
 
