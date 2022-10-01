@@ -4,7 +4,6 @@ import BottomBar from './BottomBar';
 import Home from './Home';
 import Trivia from './Trivia';
 import { useState } from 'react';
-import { render } from 'react-dom';
 
 export default function App() {
 
