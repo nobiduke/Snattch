@@ -1,1 +1,182 @@
-"[\n\t{\n\t\t\"Question\": \"In which year was For a Few Dollars More released?\",\n\t\t\"correctAnswer\": \"1965\",\n\t\t\"IncorrectAnswers\": [\n\t\t\t\"1959\",\n\t\t\t\"1971\",\n\t\t\t\"1977\"\n\t\t]\n\t},\n\t{\n\t\t\"Question\": \"Who Won The Formula One Drivers Championship In 2007?\",\n\t\t\"correctAnswer\": \"Kimi Raikkonen\",\n\t\t\"IncorrectAnswers\": [\n\t\t\t\"Michael Schumacher\",\n\t\t\t\"Max Verstappen\",\n\t\t\t\"Damon Hill\"\n\t\t]\n\t},\n\t{\n\t\t\"Question\": \"Name the movie that matches the following plot summary: 'A blacksmith teams up with an eccentric pirate to save his love.'\",\n\t\t\"correctAnswer\": \"Pirates of the Caribbean: The Curse of the Black Pearl\",\n\t\t\"IncorrectAnswers\": [\n\t\t\t\"Die Hard\",\n\t\t\t\"The Departed\",\n\t\t\t\"The Truman Show\"\n\t\t]\n\t},\n\t{\n\t\t\"Question\": \"The language 'French' belongs to which language family?\",\n\t\t\"correctAnswer\": \"Indo-European\",\n\t\t\"IncorrectAnswers\": [\n\t\t\t\"Japonic\",\n\t\t\t\"Sino-Tibetan\",\n\t\t\t\"Kra\\u2013Dai\"\n\t\t]\n\t},\n\t{\n\t\t\"Question\": \"Which metal has the chemical element W?\",\n\t\t\"correctAnswer\": \"Tungsten\",\n\t\t\"IncorrectAnswers\": [\n\t\t\t\"Cobalt\",\n\t\t\t\"Nickel\",\n\t\t\t\"Titanium\"\n\t\t]\n\t},\n\t{\n\t\t\"Question\": \"Which of these countries borders Cameroon?\",\n\t\t\"correctAnswer\": \"Chad\",\n\t\t\"IncorrectAnswers\": [\n\t\t\t\"S\\u00e3o Tom\\u00e9 and Pr\\u00edncipe\",\n\t\t\t\"Benin\",\n\t\t\t\"Niger\"\n\t\t]\n\t},\n\t{\n\t\t\"Question\": \"Which Rodent Has Given It's Name To A Mean Spirited Or Bad Tempered Woman?\",\n\t\t\"correctAnswer\": \"Shrew\",\n\t\t\"IncorrectAnswers\": [\n\t\t\t\"Rat\",\n\t\t\t\"Squirrel\",\n\t\t\t\"Beaver\"\n\t\t]\n\t},\n\t{\n\t\t\"Question\": \"Port of Spain is the capital city of which country?\",\n\t\t\"correctAnswer\": \"Trinidad and Tobago\",\n\t\t\"IncorrectAnswers\": [\n\t\t\t\"Dominican Republic\",\n\t\t\t\"Ecuador\",\n\t\t\t\"Malta\"\n\t\t]\n\t},\n\t{\n\t\t\"Question\": \"The Average Woman Has 9 Pints Of Blood, How Much Has The Average Man\",\n\t\t\"correctAnswer\": \"12 Pints\",\n\t\t\"IncorrectAnswers\": [\n\t\t\t\"9 Pints\",\n\t\t\t\"7 Pints\",\n\t\t\t\"10 Pints\"\n\t\t]\n\t},\n\t{\n\t\t\"Question\": \"Which American Football team was nicknamed the \\\"Orange Crush\\\"?\",\n\t\t\"correctAnswer\": \"Denver Broncos\",\n\t\t\"IncorrectAnswers\": [\n\t\t\t\"Dallas Cowboys\",\n\t\t\t\"New England Patriots\",\n\t\t\t\"Miami Dolphins\"\n\t\t]\n\t},\n\t{\n\t\t\"Question\": \"What nut is used to make marzipan?\",\n\t\t\"correctAnswer\": \"Almond\",\n\t\t\"IncorrectAnswers\": [\n\t\t\t\"Hazelnut\",\n\t\t\t\"Brazil Nut\",\n\t\t\t\"Walnut\"\n\t\t]\n\t},\n\t{\n\t\t\"Question\": \"Which of these quotes is from the film 'Gran Torino'?\",\n\t\t\"correctAnswer\": \"\\\"Get off my lawn.\\\"\",\n\t\t\"IncorrectAnswers\": [\n\t\t\t\"\\\"You know how I know that you\\u2019re gay?\\\"\",\n\t\t\t\"\\\"Oh, no, it wasn't the airplanes. It was Beauty killed the Beast.\\\"\",\n\t\t\t\"\\\"Sawyer, you're going out a youngster, but you've t to come back a star!\\\"\"\n\t\t]\n\t},\n\t{\n\t\t\"Question\": \"Which actor plays the role of Gamora in the Marvel Cinematic Universe?\",\n\t\t\"correctAnswer\": \"Zoe Saldana\",\n\t\t\"IncorrectAnswers\": [\n\t\t\t\"Brie Larson\",\n\t\t\t\"Zendaya\",\n\t\t\t\"Angelina Jolie\"\n\t\t]\n\t},\n\t{\n\t\t\"Question\": \"Which author wrote 'Romeo and Juliet'?\",\n\t\t\"correctAnswer\": \"William Shakespeare\",\n\t\t\"IncorrectAnswers\": [\n\t\t\t\"Arthur C. Clarke\",\n\t\t\t\"Isaac Newton\",\n\t\t\t\"Enid Blyton\"\n\t\t]\n\t},\n\t{\n\t\t\"Question\": \"Whose Life Story Featured In The Movie 'Amadeus'?\",\n\t\t\"correctAnswer\": \"Mozart\",\n\t\t\"IncorrectAnswers\": [\n\t\t\t\"Beethoven\",\n\t\t\t\"Liszt\",\n\t\t\t\"Wagner\"\n\t\t]\n\t},\n\t{\n\t\t\"Question\": \"In which book does 'Bilbo Baggins' appear?\",\n\t\t\"correctAnswer\": \"The Hobbit\",\n\t\t\"IncorrectAnswers\": [\n\t\t\t\"Charlotte's Web\",\n\t\t\t\"Alice's Adventures in Wonderland\",\n\t\t\t\"Bluebeard\"\n\t\t]\n\t},\n\t{\n\t\t\"Question\": \"Marisa Tomei plays the role of which character in the Marvel Cinematic Unvierse?\",\n\t\t\"correctAnswer\": \"Aunt May Parker\",\n\t\t\"IncorrectAnswers\": [\n\t\t\t\"The Ancient One\",\n\t\t\t\"Wanda Maximoff\",\n\t\t\t\"Jane Foster\"\n\t\t]\n\t},\n\t{\n\t\t\"Question\": \"Which book contains the character 'Neddy Merrill'?\",\n\t\t\"correctAnswer\": \"The Swimmer\",\n\t\t\"IncorrectAnswers\": [\n\t\t\t\"The English Patient\",\n\t\t\t\"Portrait of the Artist as a Young Man\",\n\t\t\t\"Nine Stories\"\n\t\t]\n\t},\n\t{\n\t\t\"Question\": \"When do Werewolves appear?\",\n\t\t\"correctAnswer\": \"At a full moon\",\n\t\t\"IncorrectAnswers\": [\n\t\t\t\"At midnight\",\n\t\t\t\"On Halloween\",\n\t\t\t\"On Mondays\"\n\t\t]\n\t},\n\t{\n\t\t\"Question\": \"Which English rock band released the song 'I Want to Hold Your Hand'?\",\n\t\t\"correctAnswer\": \"The Beatles\",\n\t\t\"IncorrectAnswers\": [\n\t\t\t\"Deep Purple\",\n\t\t\t\"Feeder\",\n\t\t\t\"Uriah Heep\"\n\t\t]\n\t}\n]"
+[
+	{
+		"Question": "Which author wrote 'Heart of a Dog'?",
+		"correctAnswer": "Mikhail Bulgakov",
+		"IncorrectAnswers": [
+			"Vladimir Nabokov",
+			"Ayn Rand",
+			"Stanis\u0142aw Lem"
+		]
+	},
+	{
+		"Question": "What is Ecogeomorphology the study of?",
+		"correctAnswer": "or biogeomorphology, interactions between organisms and geomorphological processes",
+		"IncorrectAnswers": [
+			"interactions between organisms and geomorphological processes",
+			"the Sun",
+			"music in society, usually non-western music"
+		]
+	},
+	{
+		"Question": "Which group's first album was entitled 'Piper At the Gates Of Dawn''",
+		"correctAnswer": "Pink Floyd",
+		"IncorrectAnswers": [
+			"Black Sabbath",
+			"AC/DC",
+			"Fleetwood Mac"
+		]
+	},
+	{
+		"Question": "What is the capital city of The United Kingdom?",
+		"correctAnswer": "London",
+		"IncorrectAnswers": [
+			"Manchester",
+			"Birmingham",
+			"Winchester"
+		]
+	},
+	{
+		"Question": "Which word is defined as 'a person who talks at great length without making much sense'?",
+		"correctAnswer": "Blatherskite",
+		"IncorrectAnswers": [
+			"Agastopia",
+			"Cacophony",
+			"Impignorate"
+		]
+	},
+	{
+		"Question": "The country of Brunei is on which continent?",
+		"correctAnswer": "Asia",
+		"IncorrectAnswers": [
+			"South America",
+			"Oceania",
+			"Europe"
+		]
+	},
+	{
+		"Question": "Which philosopher famously said 'Religion is the sign of the oppressed ... it is the opium of the people'?",
+		"correctAnswer": "Karl Marx",
+		"IncorrectAnswers": [
+			"Ludwig Wittgenstein",
+			"Socrates",
+			"Friedrich Nietzsche"
+		]
+	},
+	{
+		"Question": "What chemical compound causes pain in muscles after exercise?",
+		"correctAnswer": "Lactic acid",
+		"IncorrectAnswers": [
+			"Amenic Acid",
+			"Stomach Acid",
+			"Pectic Acid"
+		]
+	},
+	{
+		"Question": "Which of these quotes is from the film 'Crash'?",
+		"correctAnswer": "\"It\u2019s the sense of touch. In any real city, you walk, you know? You brush past people, people bump into you. In L.A., nobody touches you. We\u2019re always behind this metal and glass. I think we miss that touch so much, that we crash into each other, just so we can feel something.\"",
+		"IncorrectAnswers": [
+			"\"May the Force be with you.\"",
+			"\"Here's looking at you, kid.\"",
+			"\"What is this? A center for ants? How can we be expected to teach children to learn how to read\u2026if they can\u2019t even fit inside the building?\""
+		]
+	},
+	{
+		"Question": "What is Hierology the study of?",
+		"correctAnswer": "a more inclusive term for theology",
+		"IncorrectAnswers": [
+			"the history, languages, and cultures of the Indian subcontinent",
+			"the Sumerians",
+			"crayfish"
+		]
+	},
+	{
+		"Question": "In which book does 'Charles Bingley' appear?",
+		"correctAnswer": "Pride and Prejudice",
+		"IncorrectAnswers": [
+			"The Fault in Our Stars",
+			"Ship of Fools",
+			"War and Peace"
+		]
+	},
+	{
+		"Question": "In 1998 Who Became The Youngest Footballer To Score A Hat Trick In The English Premiership?",
+		"correctAnswer": "Michael Owen",
+		"IncorrectAnswers": [
+			"Alan Shearer",
+			"Eric Cantona",
+			"Harry Kane"
+		]
+	},
+	{
+		"Question": "Which region of France does claret come from?",
+		"correctAnswer": "Bordeaux\u00a0",
+		"IncorrectAnswers": [
+			"Toulouse",
+			"Lyon",
+			"Champagne"
+		]
+	},
+	{
+		"Question": "In 1958 a plane carrying Manchester United home from a match in Belgrade crash during take-off at which city's Airport?",
+		"correctAnswer": "Munich",
+		"IncorrectAnswers": [
+			"Belgrade",
+			"Budapest",
+			"Rome"
+		]
+	},
+	{
+		"Question": "A cat's __________ can't move sideways.",
+		"correctAnswer": "Jaw",
+		"IncorrectAnswers": [
+			"Eyes",
+			"Tail",
+			"Forelegs"
+		]
+	},
+	{
+		"Question": "Which song begins with the lyrics: \"Hello darkness, my old friend...\"?",
+		"correctAnswer": "\"The Sound of Silence\" by Simon & Garfunkel",
+		"IncorrectAnswers": [
+			"\"Jumpin', Jumpin'\" by Destiny's Child",
+			"\"Gimme More\" by Britney Spears",
+			"\"1,2 Step\" by Ciara and Missy Elliott"
+		]
+	},
+	{
+		"Question": "What is Malacology the study of?",
+		"correctAnswer": "mollusks",
+		"IncorrectAnswers": [
+			"the Earth",
+			"dialects",
+			"religion"
+		]
+	},
+	{
+		"Question": "In which country is the city of Reykjavik?",
+		"correctAnswer": "Iceland",
+		"IncorrectAnswers": [
+			"Italy",
+			"Croatia",
+			"Bosnia and Herzegovina"
+		]
+	},
+	{
+		"Question": "Who won the 2003 Academy Award for Best Supporting Actress for playing the role of Ruby Thewes in Cold Mountain?",
+		"correctAnswer": "Ren\u00e9e Zellweger",
+		"IncorrectAnswers": [
+			"Shohreh Aghdashloo",
+			"Patricia Clarkson",
+			"Marcia Gay Harden"
+		]
+	},
+	{
+		"Question": "What is the world's deepest lake?",
+		"correctAnswer": "Lake Baikal",
+		"IncorrectAnswers": [
+			"Lake Superior",
+			"Lake Victoria",
+			"Loch Ness"
+		]
+	}
+]

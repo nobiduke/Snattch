@@ -20,8 +20,7 @@ def extractData():
                 dict["IncorrectAnswers"] = currIncorrect
                 listQuestions.append(dict)
                 invalid -= 1
-    jsonObj = json.dumps(listQuestions, indent= '\t')
-    return jsonObj
+    return listQuestions
 
 def getDailyQuestionID():
     IDs = []
