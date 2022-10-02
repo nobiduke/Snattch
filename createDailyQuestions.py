@@ -21,8 +21,9 @@ def createDailyQuestions():
             dict["id"] = currID
             Questions.append(dict)
         time.sleep(.5)
+    jsonDaily = json.dumps(Questions, indent= '\t')
     with open('dailyQuestions.json', 'w') as outfile:
-        json.dump(Questions, outfile, indent='\t')
+        json.dump(jsonDaily, outfile, indent='\t')
 
 if(__name__ == "__main__"):
     createDailyQuestions()

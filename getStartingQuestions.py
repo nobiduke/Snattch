@@ -1,6 +1,10 @@
+from pickle import GLOBAL
 from textwrap import indent
+from datetime import datetime
 import requests
 import json
+
+
 
 def extractData():
     listQuestions = []
@@ -20,7 +24,8 @@ def extractData():
                 dict["IncorrectAnswers"] = currIncorrect
                 listQuestions.append(dict)
                 invalid -= 1
-    return listQuestions
+    jsonObj = json.dumps(listQuestions, indent= '\t')
+    return jsonObj
 
 def getDailyQuestionID():
     IDs = []
@@ -29,8 +34,6 @@ def getDailyQuestionID():
     for i in data:
         IDs.append(i.get('id'))
     return IDs
-
-
 
 def main():
     obj = extractData()
