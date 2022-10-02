@@ -1,5 +1,5 @@
 import { getDatabase } from "firebase/database";
-
+// turns the database into a dictionary values
 
 function makeMap(){
     var map = {}
@@ -12,7 +12,3 @@ function makeMap(){
     });
     return map;
 }
-
-
-
-// firebase.database().ref('users/' + uid).on
