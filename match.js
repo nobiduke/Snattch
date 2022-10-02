@@ -1,7 +1,7 @@
 // import { FirebaseError } from "firebase/app"
 // import {Database, getDatabase, ref} from "firebase/database"
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import {getDatabase, ref, onValue, update} from "firebase/database";
+import {getDatabase, ref, onValue, update, set} from "firebase/database";
 import {app} from './firebase';
 import { makeMap } from "./extract";
 
@@ -36,13 +36,22 @@ function getInfo(Id){
 }
 
 
-// export function updateScoreUser(uid, score){
-//     update['/users/' + uid + '/Score'] = score;
-// }
+export function updateScoreUser(uid, score){
+    var info = {}
+    const userRef = ref(db, '/users/' + uid + '/Score');
+    onValue(userRef, (snapshot)=>{
+        oldScore = snapshot.val()
+        // console.log(info)
+    })
+    oldScore+=score;
+    set(userRef, oldScore);
+}
 
 // finds the closest score to the user
 export function userMatching(uid) {
+    // console.log(uid);
     let userDict = makeMap(db);
+    // console.log(userDict)
     let userScore = userDict[uid];
     // console.log(userScore)
     var closestUser; // stores the closest scores uid to the original
@@ -72,6 +81,7 @@ export function userMatching(uid) {
     for(const entry of slice){
         returnList.push(getInfo(entry['key']));
     }
+    console.log(returnList);
 
     return returnList;
 

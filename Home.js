@@ -12,7 +12,7 @@ const testprofs = [
 ]
 
 export default function Home({profiles, auth}) {
-    
+    console.log(profiles)
     const [profileNum, setProfileNum] = useState(0);
     // let profile = {name:'Landon Jones', coverLink:require('./assets/landongaze.jpg')};
     const [buffer, setBuffer] = useState(400);
@@ -136,16 +136,16 @@ export default function Home({profiles, auth}) {
             
             <TouchableOpacity onPress={()=>openProfile()}>
                 <View style={styles.nameHolder}>
-                    <Text style={styles.nameText}>{profiles[profileNum].Name}</Text>
+                    <Text style={styles.nameText}>{profiles.length>2?profiles[profileNum].Name:""}</Text>
                 </View>
             </TouchableOpacity>
             
             <View style={styles.coverHolder}>
-                <Text style={styles.innerText}>Age: {profiles[profileNum].Age} Gender: {profiles[profileNum].Gender}</Text>
+                <Text style={styles.innerText}>Age: {profiles.length>2?profiles[profileNum].Age:""} Gender: {profiles.length>2?profiles[profileNum].Gender:""}</Text>
             </View>
 
             <View style={styles.bioHolder}>
-                <Text style={styles.innerText}>Bio: {profiles[profileNum].Bio}</Text>
+                <Text style={styles.innerText}>Bio: {profiles.length>2?profiles[profileNum].Bio:""}</Text>
             </View>
 
             <View style={styles.buttonHolder}>

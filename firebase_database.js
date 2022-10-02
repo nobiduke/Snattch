@@ -6,6 +6,7 @@ export function writeUserData(uid, name, gender, age, bio){
     const reference = ref(db, 'users/' + uid)
 
     set(reference,{
+        Id: uid,
         Name: name,
         Gender: gender, 
         Age: age,

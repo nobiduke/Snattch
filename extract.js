@@ -9,9 +9,9 @@ export function makeMap(db){
 
       snapshot.forEach((entry)=>{
         orderedmap[entry.val()['Id']] = entry.val()["Score"]
-        // console.log(orderedmap)
+        // console.log(orderedmap[entry.val()['Id']])
       })
-      
+      // return orderedmap;
     })
     return orderedmap;
     

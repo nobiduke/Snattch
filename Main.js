@@ -3,33 +3,24 @@ import { StyleSheet, Text, View, Image } from 'react-native';
 import BottomBar from './BottomBar';
 import Home from './Home';
 import Trivia from './Trivia';
-import { Component, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Profile from './Profile';
 import { userMatching } from './match';
 
+const BASE_PROF = [{Name:'', Age:'', Gender:'', Bio:''}]
+
 export default function Main({auth, next}) {
 
-  const [profiles, setProfile] = useState(<Profile auth={auth} next={next}></Profile>);
   const [theme, setTheme] = useState('light');
   const [menu, setMenu] = useState(<Profile auth={auth} next={next}></Profile>);
-
-  useEffect(()=>{
-    setProfile(userMatching(auth.currentUser.uid));
-  }, [auth])
-
-  useEffect(()=>{
-    if(profiles.length > 1){
-      setMenu(<Home profiles={profiles} auth={auth}></Home>)
-    }
-  }, [profiles]);
-
+  
   function menuChange(menuName){
     if(menuName == 'trivia'){
       setMenu(<Trivia auth={auth}></Trivia>);
     } else if(menuName == 'profile'){
       setMenu(<Profile auth={auth} next={next}></Profile>);
     } else{
-      setMenu(<Home profiles={profiles} auth={auth}></Home>)
+      setMenu(<Home profiles={userMatching(auth.currentUser.uid)} auth={auth}></Home>)
     }
   }
 
