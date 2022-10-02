@@ -5,7 +5,7 @@
 		"IncorrectAnswers": [
 			"Vladimir Nabokov",
 			"Ayn Rand",
-			"Stanis\u0142aw Lem"
+			"Stanisaw Lem"
 		]
 	},
 	{
@@ -73,11 +73,11 @@
 	},
 	{
 		"Question": "Which of these quotes is from the film 'Crash'?",
-		"correctAnswer": "\"It\u2019s the sense of touch. In any real city, you walk, you know? You brush past people, people bump into you. In L.A., nobody touches you. We\u2019re always behind this metal and glass. I think we miss that touch so much, that we crash into each other, just so we can feel something.\"",
+		"correctAnswer": "\"Its the sense of touch. In any real city, you walk, you know? You brush past people, people bump into you. In L.A., nobody touches you. We're always behind this metal and glass. I think we miss that touch so much, that we crash into each other, just so we can feel something.\"",
 		"IncorrectAnswers": [
 			"\"May the Force be with you.\"",
 			"\"Here's looking at you, kid.\"",
-			"\"What is this? A center for ants? How can we be expected to teach children to learn how to read\u2026if they can\u2019t even fit inside the building?\""
+			"\"What is this? A center for ants? How can we be expected to teach children to learn how to read if they can't even fit inside the building?\""
 		]
 	},
 	{
@@ -109,7 +109,7 @@
 	},
 	{
 		"Question": "Which region of France does claret come from?",
-		"correctAnswer": "Bordeaux\u00a0",
+		"correctAnswer": "Bordeaux",
 		"IncorrectAnswers": [
 			"Toulouse",
 			"Lyon",
@@ -163,7 +163,7 @@
 	},
 	{
 		"Question": "Who won the 2003 Academy Award for Best Supporting Actress for playing the role of Ruby Thewes in Cold Mountain?",
-		"correctAnswer": "Ren\u00e9e Zellweger",
+		"correctAnswer": "Rene Zellweger",
 		"IncorrectAnswers": [
 			"Shohreh Aghdashloo",
 			"Patricia Clarkson",
