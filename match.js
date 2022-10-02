@@ -1,15 +1,18 @@
 // import { FirebaseError } from "firebase/app"
 // import {Database, getDatabase, ref} from "firebase/database"
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-
+import {getDatabase, ref, onValue} from "firebase/database";
 
 // Get the respective ID's from the Database
-const firebase = getAuth();
+const auth = getAuth();
+const db = getDatabase();
 
-onAuthStateChanged(user => {
+onAuthStateChanged(auth, (user) => {
     if (user) {
-        getUserScore(user.uid)
-        getUserRankScore(user.uid)
+        // var temp = user;
+        const userId = auth.currentUser.
+        getUserScore(user.uid);
+        getUserRankScore(user.uid);
     }
 })
 
