@@ -3,7 +3,6 @@ import { useState } from 'react';
 import {login} from './firebase_create';
 import {signOn} from './firebase_signin';
 import {View, Text, TextInput, Button, StyleSheet} from 'react-native';
-import Main from './Main';
 
 export default function LoginPage({auth, next}) {
   const [username, changeUsername] = useState(auth.currentUser==null?null:auth.currentUser.email);

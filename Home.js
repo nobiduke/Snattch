@@ -42,12 +42,32 @@ export default function Home() {
             fontSize:30,
             fontFamily:'Arial',
         },
+        innerText:{
+            fontSize:25,
+            fontFamily:'Arial',
+            paddingVertical:10,
+            paddingHorizontal:10
+        },
         coverHolder:{
             opacity:attrOpacity,
             position:attrOpacity==100?'relative':'absolute',
             top:attrOpacity==100?'0%':'100%',
+            backgroundColor:'#DDDDDD',
+            borderRadius:10,
             width:370,
-            height:550,
+            shadowColor: '#777777',
+            shadowOffset:{width:5, height:5},
+            marginHorizontal:10,
+            shadowOpacity:1,
+            marginVertical:15,
+        },
+        bioHolder:{
+            opacity:attrOpacity,
+            position:attrOpacity==100?'relative':'absolute',
+            top:attrOpacity==100?'0%':'100%',
+            backgroundColor:'#DDDDDD',
+            borderRadius:10,
+            width:370,
             shadowColor: '#777777',
             shadowOffset:{width:5, height:5},
             marginHorizontal:10,
@@ -120,7 +140,11 @@ export default function Home() {
             </TouchableOpacity>
             
             <View style={styles.coverHolder}>
-                <Image style={styles.coverImg} source={profiles[profileNum].coverLink}></Image>
+                <Text style={styles.innerText}>Age: {profiles[profileNum].age} Gender: {profiles[profileNum].gender}</Text>
+            </View>
+
+            <View style={styles.bioHolder}>
+                <Text style={styles.innerText}>Bio: {profiles[profileNum].bio}</Text>
             </View>
 
             <View style={styles.buttonHolder}>

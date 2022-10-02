@@ -10,6 +10,7 @@ export default function CreateAccount({auth, next}) {
     const [correct, setCorrect] = useState(0);
     const [start, setStart] = useState(false);
     const [answers, setAnswers] = useState([0,1,2,3])
+    const [numCorrect, setNumCorrect] = useState(0);
 
     function getQuest(index){
         if(index == 0){
@@ -33,7 +34,7 @@ export default function CreateAccount({auth, next}) {
 
     function select(answer){
         if(answer == correct){
-            console.log('correct')
+            setNumCorrect(numCorrect+1)
         } else{
             console.log('wrong')
         }
