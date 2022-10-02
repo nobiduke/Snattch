@@ -1,13 +1,18 @@
 import React from 'react';
 import { useState } from 'react';
-import {View, Text, TextInput, TouchableOpacity, Button, StyleSheet} from 'react-native';
+import {View, Text, TextInput, Button, StyleSheet} from 'react-native';
+import { writeUserData } from './firebase_database';
 
-export default function CreateAccount({next}) {
+export default function CreateAccount({auth, next}) {
   
     const [profname, changeProfName] = useState(null);
     const [gender, changeGender] = useState(null);
     const [age, changeAge] = useState(null)
     const [bio, changeBio] = useState(null);
+
+    function trigger(){
+        writeUserData(auth.currentUser.uid, profname, gender, age, bio);
+    }
 
     const styles = StyleSheet.create({
         title: {
@@ -49,7 +54,7 @@ export default function CreateAccount({next}) {
         <TextInput style={styles.loginBoxes} onChangeText={changeGender} value={gender} placeholder='Age'></TextInput>
         <TextInput style={styles.loginBoxes} onChangeText={changeAge} value={age} placeholder='Gender'></TextInput>
         <TextInput style={styles.bioBox} onChangeText={changeBio} value={bio} placeholder='Bio'></TextInput>
-        <Button title='Submit' onPress={()=>(next(3))}></Button>
+        <Button title='Submit' onPress={()=>{trigger();next(3)}}></Button>
     </View>
     )
 }

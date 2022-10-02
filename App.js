@@ -30,7 +30,7 @@ export default function App() {
       setMenu(<StarterQuestions auth={auth} next={auth}></StarterQuestions>)
       setCanChange(0);
     } else if(canChange == 4){
-      makeMap();
+      makeMap(auth.currentUser.uid);
       setMenu(<LoginPage auth={auth} next={setCanChange}></LoginPage>);
       setCanChange(0);
     }
