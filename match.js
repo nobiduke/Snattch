@@ -37,7 +37,6 @@ function getInfo(Id){
 
 
 export function updateScoreUser(uid, score){
-    var info = {}
     const userRef = ref(db, '/users/' + uid + '/Score');
     onValue(userRef, (snapshot)=>{
         oldScore = snapshot.val()
@@ -45,6 +44,45 @@ export function updateScoreUser(uid, score){
     })
     oldScore+=score;
     set(userRef, oldScore);
+}
+
+export function updateUserPossMatches(uid, otherId){
+    let oldScore = null;
+    const userRef = ref(db, '/users/' + uid + '/PosMatches');
+    onValue(userRef, (snapshot)=>{
+        oldScore = snapshot.val()
+        // console.log(info)
+    })
+    oldScore = [`${otherId}`];
+    
+    set(userRef, oldScore);
+}
+
+export function updateUserMatches(uid, otherId){
+    let oldScore = null;
+    const userRef = ref(db, '/users/' + otherId + '/PosMatches');
+    onValue(userRef, (snapshot)=>{
+        oldScore = snapshot.val()['PosMatches'][0]
+        // console.log(info)
+    })
+
+    if(oldScore != uid){return;}
+
+    const myRef = ref(db, '/users/' + uid + '/Matches');
+    const otherRef = ref(db, '/users/' + otherId + '/Matches');
+    set(myRef, [`${otherId}`])
+    set(otherRef, [`${uid}`])
+}
+
+export function getMatches(uid){
+    let value = null;
+    const userRef = ref(db, '/users/' + uid + '/Matches');
+    onValue(userRef, (snapshot)=>{
+        if(snapshot.val()){
+            value = snapshot.val();
+        }
+    })
+    return getInfo(value[0]);
 }
 
 // finds the closest score to the user

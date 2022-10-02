@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import {StyleSheet, TouchableHighlight, View, Image, Text, ScrollView, Button, TouchableOpacity} from 'react-native';
-import { userMatching } from './match';
+import { updateUserPossMatches, updateUserMatches } from './match';
 
 const testprofs = [
     {name:'Landon Jones', coverLink:require('./assets/profiles/landongaze.jpg')},
@@ -120,6 +120,8 @@ export default function Home({profiles, auth}) {
     }
 
     function yesProfile(){
+        updateUserPossMatches(auth.currentUser.uid, profiles[profileNum]['Id']);
+        updateUserMatches(auth.currentUser.uid, profiles[profileNum]['Id'])
         setProfileNum(profileNum<5?profileNum+1:0);
         openProfile();
     }
