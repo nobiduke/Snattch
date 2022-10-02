@@ -4,11 +4,12 @@ import {writeUserData} from "./firebase_database";
 
 // const auth = getAuth(app);
 
-export function login(auth, user, pass) {
+export function login(auth, user, pass, trigger) {
     let err = 0;
     createUserWithEmailAndPassword(auth, user, pass)
     .then(() => {
     // Signed in 
+        trigger(2);
         return true;
     // ...
     })
