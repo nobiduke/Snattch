@@ -1,13 +1,6 @@
-import React from 'react';
-import { useState } from 'react';
-import {login} from './firebase_create';
 import {View, Text, Button, StyleSheet} from 'react-native';
 
-export default function Profile({user, auth, next}) {
-  
-  const styles = StyleSheet.create({
-
-  })
+export default function Profile({auth, next}) {
 
   return (
     <View>

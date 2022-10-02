@@ -4,6 +4,7 @@ import { getDatabase, ref, onValue } from "firebase/database";
 export function makeMap(db){
     var orderedmap = {}
     const userID = ref(db, 'users')
+    
     onValue(userID, (snapshot) =>{
       // console.log(snapshot.val());
 
@@ -11,8 +12,8 @@ export function makeMap(db){
         orderedmap[entry.val()['Id']] = entry.val()["Score"]
         // console.log(orderedmap[entry.val()['Id']])
       })
-      // return orderedmap;
-    })
+    });
+    
     return orderedmap;
     
   }

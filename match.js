@@ -48,9 +48,9 @@ export function updateScoreUser(uid, score){
 }
 
 // finds the closest score to the user
-export function userMatching(uid) {
-    // console.log(uid);
-    let userDict = makeMap(db);
+export async function userMatching(uid) {
+    
+    var userDict = makeMap(db);
     // console.log(userDict)
     let userScore = userDict[uid];
     // console.log(userScore)
@@ -58,14 +58,12 @@ export function userMatching(uid) {
     var closestVal = 0;
     let current = [];
     let count = 0;
-
     for(const [key, val] of Object.entries(userDict)){
         // console.log(key);
         if(key != uid){
             current.push({key:key, val:Math.abs(userScore - val)})
         }
     }
-
     current.sort((a, b)=>{
         if(a.val < b.val){
             return -1;
@@ -75,15 +73,16 @@ export function userMatching(uid) {
             return 0;
         }
     })
-
     let slice = current.slice(0, 10);
     let returnList = [];
     for(const entry of slice){
         returnList.push(getInfo(entry['key']));
     }
-    console.log(returnList);
-
+    // console.log(returnList);
     return returnList;
+    
+    // console.log(uid);
+    
 
     // iterates through the map until
     // userScore.sort((a, b)=>{

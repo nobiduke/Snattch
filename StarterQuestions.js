@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import {View, Text, TouchableOpacity, StyleSheet, Button} from 'react-native';
+import {updateScoreUser} from './match';
 const QUESTIONS = require('./questions.json');
 const PERMS = require('./permutations.json');
 
-export default function CreateAccount({auth, next}) {
+export default function StarterQuestions({auth, next}) {
 
     const [questionIndex, setQuestionIndex] = useState(0);
     const [correct, setCorrect] = useState(0);
@@ -40,6 +41,7 @@ export default function CreateAccount({auth, next}) {
         }
 
         if(questionIndex+1 == 19){
+            updateScoreUser(auth.currentUser.uid, numCorrect*10);
             next(1);
         }
 

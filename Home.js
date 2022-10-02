@@ -12,7 +12,7 @@ const testprofs = [
 ]
 
 export default function Home({profiles, auth}) {
-    console.log(profiles)
+    // console.log(profiles);
     const [profileNum, setProfileNum] = useState(0);
     // let profile = {name:'Landon Jones', coverLink:require('./assets/landongaze.jpg')};
     const [buffer, setBuffer] = useState(400);
