@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import {View, Text, TouchableOpacity, StyleSheet, Button} from 'react-native';
 const QUESTIONS = require('./questions.json');
 const PERMS = require('./permutations.json');
 
@@ -8,6 +8,7 @@ export default function CreateAccount({next}) {
 
     const [questionIndex, setQuestionIndex] = useState(0);
     const [correct, setCorrect] = useState(0);
+    const [start, setStart] = useState(false);
     const [A, setA] = useState(null);
     const [B, setB] = useState(null);
     const [C, setC] = useState(null);
@@ -34,10 +35,13 @@ export default function CreateAccount({next}) {
 
     function select(answer){
         if(answer == correct){
-            
+
         } else{
 
         }
+
+        setQuestionIndex(questionIndex++);
+        
     }
 
     const styles = StyleSheet.create({
@@ -54,6 +58,7 @@ export default function CreateAccount({next}) {
             marginHorizontal:10,
             shadowOpacity:1,
             marginVertical:0,
+            opacity:start?100:0
         },
         nameHolder:{
             display:'flex',
@@ -68,6 +73,7 @@ export default function CreateAccount({next}) {
             marginHorizontal:10,
             shadowOpacity:1,
             marginVertical:15,
+            opacity:start?100:0
         },
         nameText:{
             fontSize:20,
@@ -77,11 +83,15 @@ export default function CreateAccount({next}) {
             fontSize:25,
             fontWeight:'bold',
             fontFamily:'Arial',
+        },
+        button:{
+            opacity:start?100:0
         }
     });
   
     return (
     <View>
+        <Button title='Start' onPress={()=>{setStart(true);}}></Button>
         <View style={styles.questionHolder}>
             <Text style={styles.questionText}>
                 {QUESTIONS[questionIndex]['Question']}
