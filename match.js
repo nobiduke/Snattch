@@ -2,6 +2,7 @@
 // import {Database, getDatabase, ref} from "firebase/database"
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import {getDatabase, ref, onValue, update} from "firebase/database";
+import {app} from './firebase';
 import { makeMap } from "./extract";
 
 // Get the respective ID's from the Database

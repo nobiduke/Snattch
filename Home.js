@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {StyleSheet, TouchableHighlight, View, Image, Text, ScrollView, Button, TouchableOpacity} from 'react-native';
+import { userMatching } from './match';
 
 const testprofs = [
     {name:'Landon Jones', coverLink:require('./assets/profiles/landongaze.jpg')},
@@ -10,8 +11,8 @@ const testprofs = [
     {name: 'Alan Nguyen', coverLink:require('./assets/profiles/alanmanavwalk.png')},
 ]
 
-export default function Home() {
-    let profiles = testprofs;
+export default function Home({profiles, auth}) {
+    
     const [profileNum, setProfileNum] = useState(0);
     // let profile = {name:'Landon Jones', coverLink:require('./assets/landongaze.jpg')};
     const [buffer, setBuffer] = useState(400);
@@ -135,16 +136,16 @@ export default function Home() {
             
             <TouchableOpacity onPress={()=>openProfile()}>
                 <View style={styles.nameHolder}>
-                    <Text style={styles.nameText}>{profiles[profileNum].name}</Text>
+                    <Text style={styles.nameText}>{profiles[profileNum].Name}</Text>
                 </View>
             </TouchableOpacity>
             
             <View style={styles.coverHolder}>
-                <Text style={styles.innerText}>Age: {profiles[profileNum].age} Gender: {profiles[profileNum].gender}</Text>
+                <Text style={styles.innerText}>Age: {profiles[profileNum].Age} Gender: {profiles[profileNum].Gender}</Text>
             </View>
 
             <View style={styles.bioHolder}>
-                <Text style={styles.innerText}>Bio: {profiles[profileNum].bio}</Text>
+                <Text style={styles.innerText}>Bio: {profiles[profileNum].Bio}</Text>
             </View>
 
             <View style={styles.buttonHolder}>
