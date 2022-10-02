@@ -67,12 +67,15 @@ export function updateUserMatches(uid, otherId){
     let oldScore = null;
     const userRef = ref(db, '/users/' + otherId + '/PosMatches');
     onValue(userRef, (snapshot)=>{
-        oldScore = snapshot.val()['PosMatches']
+        oldScore = snapshot.val()
         // console.log(info)
     })
 
+    console.log(oldScore)
+
     if(oldScore == null || oldScore == []){return;}
-    for(entry of oldScore){
+
+    for(const entry of oldScore){
         if(entry == uid){
             const myRef = ref(db, '/users/' + uid + '/Matches');
             const otherRef = ref(db, '/users/' + otherId + '/Matches');

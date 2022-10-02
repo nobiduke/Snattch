@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import {View, Text, Button, StyleSheet} from 'react-native';
 import { getMatches } from './match';
+import { updateUserMatches } from './match';
 
 export default function Profile({auth, next}) {
 
@@ -27,7 +28,7 @@ export default function Profile({auth, next}) {
         <Text style={styles.text}>
           {person==""||person==null?"":`Name: ${person.Name}, Age: ${person.Age}, Gender: ${person.Gender}`}
         </Text>
-        <Button title='Sign Out' onPress={()=>{next(4); auth.signOut();}}></Button>
+        <Button title='Sign Out' onPress={()=>{updateUserMatches(auth.currentUser.uid, 'HDaphsjJdcZJxohEIL0ojXDy1md2'); next(4); auth.signOut();}}></Button>
     </View>
   )
 }
