@@ -3,21 +3,20 @@ import {getDatabase, ref, set} from "firebase/database"
 
 export function writeUserData(userId, name, gender, age, bio){
     const db = getDatabase();
-    const reference = ref(db, 'users/' + userId)
+    const reference = ref(db, 'users/' + name)
 
     set(reference,{
-        username: name, 
+        userId: userId, 
         gender: gender, 
         age: age,
         bio: bio,
         score: 0});
 }
 
-export function ranking(userId, score){
+export function ranking(name, score){
     const db = getDatabase();
     const reference = ref(db, 'ranking/')
 
     set(reference,{
-        UserId: userId,
-        score: score});
+        name : score});
 }

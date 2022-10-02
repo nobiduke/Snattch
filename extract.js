@@ -4,8 +4,8 @@ import { getDatabase } from "firebase/database";
 function makeMap(){
     var map = {}
     const db = getDatabase();
-    const scoresRef = db.ref('rank');
-    scoresRef.orderByValue().on('value', (snapshot) => {
+    const scoresRef = db.ref('users');
+    scoresRef.orderByValue().on('value').on('score', (snapshot) => {
       snapshot.forEach((data) => {
         map[data.key] = daya.val();
     });
