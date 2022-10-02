@@ -12,11 +12,3 @@ export function writeUserData(uid, name, gender, age, bio){
         bio: bio,
         score: 0});
 }
-
-export function ranking(name, score){
-    const db = getDatabase();
-    const reference = ref(db, 'ranking/')
-
-    set(reference,{
-        name : score});
-}
