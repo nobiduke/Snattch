@@ -5,7 +5,6 @@ import {getDatabase, ref, onValue, update} from "firebase/database";
 import { makeMap } from "./extract";
 
 // Get the respective ID's from the Database
-const auth = getAuth();
 const db = getDatabase();
 
 // onAuthStateChanged(auth, (user) => {
@@ -16,30 +15,44 @@ const db = getDatabase();
     
 // })
 
-export function getUserScore(uid) {
+function getUserScore(uid) {
+    var value = 1;
     const userID = ref(db, '/users/' + uid)
     onValue(userID, (snapshot) =>{
-      return snapshot.val()['score']
+        value = snapshot.val()['Score'];
+    });
+    return value;
+}
+
+function getInfo(Id){
+    var info = {}
+    const userRef = ref(db, '/users/' + Id);
+    onValue(userRef, (snapshot)=>{
+        info = snapshot.val()
+        // console.log(info)
     })
+    return info
 }
 
 
-export function updateScoreUser(uid, score){
-    update['/users/' + uid + 'score'] = score;
-}
+// export function updateScoreUser(uid, score){
+//     update['/users/' + uid + '/Score'] = score;
+// }
 
 // finds the closest score to the user
 export function userMatching(uid) {
-    let userDict = makeMap(uid);
-    var userScore = getUserScore(uid);
+    let userDict = makeMap(db);
+    let userScore = userDict[uid];
+    // console.log(userScore)
     var closestUser; // stores the closest scores uid to the original
     var closestVal = 0;
     let current = [];
     let count = 0;
 
-    for(key of userDict){
+    for(const [key, val] of Object.entries(userDict)){
+        // console.log(key);
         if(key != uid){
-            current.push({key:key, val:Math.abs(userScore - userDict[key])})
+            current.push({key:key, val:Math.abs(userScore - val)})
         }
     }
 
@@ -53,7 +66,13 @@ export function userMatching(uid) {
         }
     })
 
-    console.log(current);
+    let slice = current.slice(0, 10);
+    let returnList = [];
+    for(const entry of slice){
+        returnList.push(getInfo(entry['key']));
+    }
+
+    return returnList;
 
     // iterates through the map until
     // userScore.sort((a, b)=>{

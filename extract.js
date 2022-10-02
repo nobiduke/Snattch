@@ -1,20 +1,19 @@
 import { getDatabase, ref, onValue } from "firebase/database";
 // turns the database into a dictionary values
 
-export function makeMap(uid){
+export function makeMap(db){
     var orderedmap = {}
-    const db = getDatabase()
     const userID = ref(db, 'users')
     onValue(userID, (snapshot) =>{
       // console.log(snapshot.val());
 
       snapshot.forEach((entry)=>{
-        orderedmap[uid] = entry.val()["Score"]
-        // console.log(orderedmap[uid])
+        orderedmap[entry.val()['Id']] = entry.val()["Score"]
+        // console.log(orderedmap)
       })
       
-      return orderedmap;
     })
+    return orderedmap;
     
   }
 
