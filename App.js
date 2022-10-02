@@ -7,6 +7,7 @@ import StarterQuestions from './StarterQuestions';
 import { useEffect, useState } from 'react';
 import {app} from './firebase';
 import { getAuth } from 'firebase/auth';
+import {makeMap} from './extract';
 
 LogBox.ignoreLogs(['AsyncStorage has been extracted from react-native core and will be removed in a future release. It can now be installed and imported from \'@react-native-async-storage/async-storage\' instead of \'react-native\'. See https://github.com/react-native-async-storage/async-storage']);
 
@@ -29,6 +30,7 @@ export default function App() {
       setMenu(<StarterQuestions auth={auth} next={auth}></StarterQuestions>)
       setCanChange(0);
     } else if(canChange == 4){
+      makeMap();
       setMenu(<LoginPage auth={auth} next={setCanChange}></LoginPage>);
       setCanChange(0);
     }

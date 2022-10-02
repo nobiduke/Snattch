@@ -1,14 +1,25 @@
-import { getDatabase } from "firebase/database";
+import { getDatabase, ref, onValue } from "firebase/database";
 // turns the database into a dictionary values
 
-function makeMap(){
+export function makeMap(){
     var map = {}
     const db = getDatabase();
-    const scoresRef = db.ref('users');
-    scoresRef.orderByValue().on('value', (snapshot) => {
-      snapshot.forEach((data) => {
-        map[data.key] = daya.val();
-    });
-    });
-    return map;
+    const scoresRef = ref(db, 'users');
+    console.log(scoresRef);
+    
+    onValue(scoresRef, (snapshot)=>{
+      snapshot.forEach((elem)=>{
+        console.log(elem.val())
+      })
+    })
+
+    // const q = query(scoresRef, where("score", ">", "5"));
+
+    // scoresRef.on('value', (snapshot) => {
+    //   snapshot.forEach((data) => {
+    //     map[data.key] = data.val();
+    // });
+    // });
+    // console.log(map);
+    // return map;
 }
