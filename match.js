@@ -9,7 +9,6 @@ onAuthStateChanged(user => {
         getUserScore(user.uid)
         getUserRankScore(user.uid)
     }
-    
 })
 
 
@@ -34,7 +33,6 @@ export function updateScoreUser(uid, score){
     });
 
 }
-
 
 export function updateScoreRank(uid, score){
     var query = db.ref("Rrank").orderByChild("uid").equalTo(uid);
