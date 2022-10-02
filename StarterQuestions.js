@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import {View, Text, TouchableOpacity, StyleSheet, Button} from 'react-native';
 const QUESTIONS = require('./questions.json');
@@ -9,10 +9,7 @@ export default function CreateAccount({next}) {
     const [questionIndex, setQuestionIndex] = useState(0);
     const [correct, setCorrect] = useState(0);
     const [start, setStart] = useState(false);
-    const [A, setA] = useState(null);
-    const [B, setB] = useState(null);
-    const [C, setC] = useState(null);
-    const [D, setD] = useState(null);
+    const [answers, setAnswers] = useState([0, 1, 2, 3])
 
     function getQuest(index){
         if(index == 0){
@@ -26,23 +23,34 @@ export default function CreateAccount({next}) {
         let quest = QUESTIONS[questionIndex];
         let order = Math.floor(Math.random()*23);
         
-        setA(getQuest(PERMS[order][0]));
-        setB(getQuest(PERMS[order][1]));
-        setC(getQuest(PERMS[order][2]));
-        setD(getQuest(PERMS[order][3]));
+        let list = []
+        for(let i = 0; i < 3; i++){
+            if(PERMS[order][i] == correct){
+                setCorrect(i);
+            }
+            list.push(getQuest(PERMS[order][i]));
+            list.push(getQuest(PERMS[order][i]));
+            list.push(getQuest(PERMS[order][i]));
+            list.push(getQuest(PERMS[order][i]));
+        }
+        setAnswers(list);
 
     }
 
     function select(answer){
         if(answer == correct){
-
+            console.log('correct')
         } else{
-
+            console.log('wrong')
         }
 
-        setQuestionIndex(questionIndex++);
-        
+        setQuestionIndex(questionIndex+1);
+        organizeQuestion();
     }
+
+    useEffect(()=>{
+        organizeQuestion();
+    }, [start])
 
     const styles = StyleSheet.create({
         questionHolder:{
@@ -99,22 +107,22 @@ export default function CreateAccount({next}) {
         </View>
         <TouchableOpacity onPress={()=>select(0)}>
             <View style={styles.nameHolder}>
-                <Text style={styles.nameText}>{A}</Text>
+                <Text style={styles.nameText}>{answers[0]}</Text>
             </View>
         </TouchableOpacity>
         <TouchableOpacity onPress={()=>select(1)}>
             <View style={styles.nameHolder}>
-                <Text style={styles.nameText}>{B}</Text>
+                <Text style={styles.nameText}>{answers[1]}</Text>
             </View>
         </TouchableOpacity>
         <TouchableOpacity onPress={()=>select(2)}>
             <View style={styles.nameHolder}>
-                <Text style={styles.nameText}>{C}</Text>
+                <Text style={styles.nameText}>{answers[2]}</Text>
             </View>
         </TouchableOpacity>
         <TouchableOpacity onPress={()=>select(4)}>
             <View style={styles.nameHolder}>
-                <Text style={styles.nameText}>{D}</Text>
+                <Text style={styles.nameText}>{answers[3]}</Text>
             </View>
         </TouchableOpacity>
     </View>
