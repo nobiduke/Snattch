@@ -13,11 +13,11 @@ export function writeUserData(userId, name, gender, age, bio){
         score: 0});
 }
 
-export function ranking(userId, name, score){
+export function ranking(userId, score){
     const db = getDatabase();
-    const reference = ref(db, 'ranking/' + userId)
+    const reference = ref(db, 'ranking/')
 
     set(reference,{
-        username : name,
+        UserId: userId,
         score: score});
 }
