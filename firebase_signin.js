@@ -6,12 +6,11 @@ import { writeUserData } from "./firebase_database";
 
 export function signOn(auth, email, password){
     signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-        const user = userCredential.user;
+    .then(() => {
+        return true;
     })
     .catch((error) => {
-        const errorCode = error.code
-        console.log(errorCode)
-        console.log(errorMessage)
+        console.log('error');
+        return false;
     });
 }

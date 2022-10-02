@@ -6,12 +6,17 @@ import {View, Text, TextInput, Button, StyleSheet} from 'react-native';
 import Main from './Main';
 
 export default function LoginPage({auth, next}) {
-  const [username, changeUsername] = useState("Username");
-  const [password, changePassword] = useState("Password");
+  const [username, changeUsername] = useState(null);
+  const [password, changePassword] = useState(null);
 
-  function trigger(){
+  function trigger(exists){
+    console.log(auth.currentUser)
     if(auth.currentUser != null){
-      next(true)
+      if(exists){
+        next(1);
+      } else{
+        next(2);
+      }
     }
   }
   
@@ -46,10 +51,10 @@ export default function LoginPage({auth, next}) {
   return (
     <View style={styles.holder}>
         <Text style={styles.title}>Welcome!</Text>
-        <TextInput style={styles.loginBoxes} onChangeText={changeUsername} value={username}></TextInput>
-        <TextInput style={styles.loginBoxes} onChangeText={changePassword} value={password}></TextInput>
-        <Button style={styles.loginButtons} title='Sign In' onPress={()=>{signOn(auth, username, password); trigger()}}></Button>
-        <Button style={styles.loginButtons} title='Create Account' onPress={()=>{login(auth, username, password); trigger()}}></Button>
+        <TextInput style={styles.loginBoxes} onChangeText={changeUsername} value={username} placeholder='Email'></TextInput>
+        <TextInput style={styles.loginBoxes} onChangeText={changePassword} value={password} placeholder='Password'></TextInput>
+        <Button style={styles.loginButtons} title='Sign In' onPress={()=>{signOn(auth, username, password); trigger(true)}}></Button>
+        <Button style={styles.loginButtons} title='Create Account' onPress={()=>{login(auth, username, password); trigger(false)}}></Button>
     </View>
   )
 }

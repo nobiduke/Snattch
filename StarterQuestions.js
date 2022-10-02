@@ -7,7 +7,7 @@ export default function CreateAccount({next}) {
 
     function select(answer){
         switch(answer){
-            case 1:
+            case 0:
                 break;
             case 2:
                 break;
@@ -15,18 +15,59 @@ export default function CreateAccount({next}) {
                 break;
             case 4:
                 break;
+            default:
+                break;
         }
     }
 
-
+    const styles = StyleSheet.create({
+        nameHolder:{
+            display:'flex',
+            justifyContent:'center',
+            alignItems:'center',
+            width:370,
+            height:70,
+            backgroundColor:'#DDDDDD',
+            borderRadius:10,
+            shadowColor: '#777777',
+            shadowOffset:{width:5, height:5},
+            marginHorizontal:10,
+            shadowOpacity:1,
+            marginVertical:15,
+        },
+        nameText:{
+            fontSize:30,
+            fontFamily:'Arial',
+        }
+    });
   
     return (
     <View>
-            <TouchableOpacity onPress={()=>openProfile()}>
-                <View style={styles.nameHolder}>
-                    <Text style={styles.nameText}>{profiles[profileNum].name}</Text>
-                </View>
-            </TouchableOpacity>
+        <View style={styles.nameHolder}>
+            <Text style={styles.nameText}>
+                Question
+            </Text>
+        </View>
+        <TouchableOpacity onPress={()=>select(0)}>
+            <View style={styles.nameHolder}>
+                <Text style={styles.nameText}>A</Text>
+            </View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={()=>select(1)}>
+            <View style={styles.nameHolder}>
+                <Text style={styles.nameText}>B</Text>
+            </View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={()=>select(2)}>
+            <View style={styles.nameHolder}>
+                <Text style={styles.nameText}>C</Text>
+            </View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={()=>select(4)}>
+            <View style={styles.nameHolder}>
+                <Text style={styles.nameText}>D</Text>
+            </View>
+        </TouchableOpacity>
     </View>
     )
 }

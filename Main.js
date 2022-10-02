@@ -4,19 +4,20 @@ import BottomBar from './BottomBar';
 import Home from './Home';
 import Trivia from './Trivia';
 import { useState } from 'react';
+import Profile from './Profile';
 
-export default function Main({user}) {
+export default function Main({auth, next}) {
 
   const [theme, setTheme] = useState('light');
-  const [menu, setMenu] = useState(<Home></Home>);
+  const [menu, setMenu] = useState(<Home auth={auth}></Home>);
 
   function menuChange(menuName){
     if(menuName == 'trivia'){
-      setMenu(<Trivia></Trivia>);
+      setMenu(<Trivia auth={auth}></Trivia>);
     } else if(menuName == 'profile'){
-      setMenu(<View></View>);
+      setMenu(<Profile auth={auth} next={next}></Profile>);
     } else{
-      setMenu(<Home></Home>)
+      setMenu(<Home auth={auth}></Home>)
     }
   }
 
