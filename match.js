@@ -2,6 +2,8 @@
 // import {Database, getDatabase, ref} from "firebase/database"
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
+
+// Get the respective ID's from the Database
 const firebase = getAuth();
 
 onAuthStateChanged(user => {

@@ -1,8 +1,7 @@
 import {getDatabase} from "firebase/database";
-import {getUserScore as getScore} from "match.js";
-import {setScoreUser as setScore} from "match.js";
-import {getScoreRank as setRankScore} from "match.js";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import {getUserScore as getScore} from "./math";
+import {setScoreUser as setScore} from "./match";
+import {getScoreRank as setRankScore} from "./match";
 
 
 function updateScoreFirst(username, right, time){
