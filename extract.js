@@ -4,9 +4,11 @@ import { getDatabase, ref, onValue } from "firebase/database";
 export function makeMap(uid){
     const db = getDatabase()
     console.log(uid)
-    const userID = ref(db, '/users/' + uid)
+    const userID = ref(db, 'users')
     onValue(userID, (snapshot) =>{
-      console.log(snapshot)
+      snapshot.forEach((entry)=>{
+        console.log(entry.val()["score"])
+      })
 
   })
 
