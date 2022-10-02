@@ -26,7 +26,7 @@ export default function App() {
       setMenu(<CreateAccount auth={auth} next={setCanChange}></CreateAccount>);
       setCanChange(0);
     } else if(canChange == 3){
-      setMenu(<StarterQuestions auth={auth}></StarterQuestions>)
+      setMenu(<StarterQuestions auth={auth} next={auth}></StarterQuestions>)
       setCanChange(0);
     } else if(canChange == 4){
       setMenu(<LoginPage auth={auth} next={setCanChange}></LoginPage>);

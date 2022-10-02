@@ -4,12 +4,12 @@ import {View, Text, TouchableOpacity, StyleSheet, Button} from 'react-native';
 const QUESTIONS = require('./questions.json');
 const PERMS = require('./permutations.json');
 
-export default function CreateAccount({next}) {
+export default function CreateAccount({auth, next}) {
 
     const [questionIndex, setQuestionIndex] = useState(0);
     const [correct, setCorrect] = useState(0);
     const [start, setStart] = useState(false);
-    const [answers, setAnswers] = useState([0, 1, 2, 3])
+    const [answers, setAnswers] = useState([0,1,2,3])
 
     function getQuest(index){
         if(index == 0){
@@ -20,21 +20,15 @@ export default function CreateAccount({next}) {
     }
 
     function organizeQuestion(){
-        let quest = QUESTIONS[questionIndex];
         let order = Math.floor(Math.random()*23);
-        
         let list = []
-        for(let i = 0; i < 3; i++){
-            if(PERMS[order][i] == correct){
+        for(let i = 0; i < 4; i++){
+            if(PERMS[order][i] == 0){
                 setCorrect(i);
             }
             list.push(getQuest(PERMS[order][i]));
-            list.push(getQuest(PERMS[order][i]));
-            list.push(getQuest(PERMS[order][i]));
-            list.push(getQuest(PERMS[order][i]));
         }
         setAnswers(list);
-
     }
 
     function select(answer){
@@ -44,12 +38,19 @@ export default function CreateAccount({next}) {
             console.log('wrong')
         }
 
+        if(questionIndex+1 == 19){
+            next(1);
+        }
+
         setQuestionIndex(questionIndex+1);
-        organizeQuestion();
     }
 
     useEffect(()=>{
         organizeQuestion();
+    },[questionIndex])
+
+    useEffect(()=>{
+        setQuestionIndex(0)
     }, [start])
 
     const styles = StyleSheet.create({
@@ -99,7 +100,7 @@ export default function CreateAccount({next}) {
   
     return (
     <View>
-        <Button title='Start' onPress={()=>{setStart(true);}}></Button>
+        <Button title='Start' onPress={()=>{setStart(start?false:true)}}></Button>
         <View style={styles.questionHolder}>
             <Text style={styles.questionText}>
                 {QUESTIONS[questionIndex]['Question']}
@@ -120,7 +121,7 @@ export default function CreateAccount({next}) {
                 <Text style={styles.nameText}>{answers[2]}</Text>
             </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={()=>select(4)}>
+        <TouchableOpacity onPress={()=>select(3)}>
             <View style={styles.nameHolder}>
                 <Text style={styles.nameText}>{answers[3]}</Text>
             </View>

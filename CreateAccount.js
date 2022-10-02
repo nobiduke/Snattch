@@ -28,6 +28,7 @@ export default function CreateAccount({next}) {
         },
         bioBox:{
             fontSize:20,
+            marginTop:20,
             marginBottom:20
         },
         loginButtons:{
@@ -45,8 +46,8 @@ export default function CreateAccount({next}) {
     <View style={styles.holder}>
         <Text style={styles.title}>Please enter your name and a bio for your account!</Text>
         <TextInput style={styles.loginBoxes} onChangeText={changeProfName} value={profname} placeholder='Name'></TextInput>
-        <TextInput style={styles.loginBoxes} onChangeText={changeGender} value={gender} placeholder='Name'></TextInput>
-        <TextInput style={styles.loginBoxes} onChangeText={changeAge} value={age} placeholder='Name'></TextInput>
+        <TextInput style={styles.loginBoxes} onChangeText={changeGender} value={gender} placeholder='Age'></TextInput>
+        <TextInput style={styles.loginBoxes} onChangeText={changeAge} value={age} placeholder='Gender'></TextInput>
         <TextInput style={styles.bioBox} onChangeText={changeBio} value={bio} placeholder='Bio'></TextInput>
         <Button title='Submit' onPress={()=>(next(3))}></Button>
     </View>
