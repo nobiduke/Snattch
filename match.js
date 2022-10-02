@@ -37,6 +37,7 @@ function getInfo(Id){
 
 
 export function updateScoreUser(uid, score){
+    let oldScore = null;
     const userRef = ref(db, '/users/' + uid + '/Score');
     onValue(userRef, (snapshot)=>{
         oldScore = snapshot.val()
@@ -53,7 +54,11 @@ export function updateUserPossMatches(uid, otherId){
         oldScore = snapshot.val()
         // console.log(info)
     })
-    oldScore = [`${otherId}`];
+    if(oldScore != null && oldScore != []){
+        oldScore.push(`${otherId}`)
+    }else{
+        oldScore = [`${otherId}`];
+    }
     
     set(userRef, oldScore);
 }
@@ -62,16 +67,38 @@ export function updateUserMatches(uid, otherId){
     let oldScore = null;
     const userRef = ref(db, '/users/' + otherId + '/PosMatches');
     onValue(userRef, (snapshot)=>{
-        oldScore = snapshot.val()['PosMatches'][0]
+        oldScore = snapshot.val()['PosMatches']
         // console.log(info)
     })
 
-    if(oldScore != uid){return;}
+    if(oldScore == null || oldScore == []){return;}
+    for(entry of oldScore){
+        if(entry == uid){
+            const myRef = ref(db, '/users/' + uid + '/Matches');
+            const otherRef = ref(db, '/users/' + otherId + '/Matches');
+            
+            let toAdd1 = [`${otherId}`];
+            let toAdd2 = [`${uid}`];
 
-    const myRef = ref(db, '/users/' + uid + '/Matches');
-    const otherRef = ref(db, '/users/' + otherId + '/Matches');
-    set(myRef, [`${otherId}`])
-    set(otherRef, [`${uid}`])
+            onValue(myRef, (snapshot)=>{
+                if(snapshot.val() == null || snapshot.val() == []){
+                    toAdd1 = [`${otherId}`];
+                } else{
+                    toAdd1 = snapshot.val().concat([`${otherId}`]);
+                }
+            })
+            onValue(otherRef, (snapshot)=>{
+                if(snapshot.val() == null || snapshot.val() == []){
+                    toAdd2 = [`${uid}`];
+                } else{
+                    toAdd2 = snapshot.val().concat([`${uid}`]);
+                }
+            })
+
+            set(myRef, toAdd1)
+            set(otherRef, toAdd2)
+        }
+    }
 }
 
 export function getMatches(uid){
@@ -82,6 +109,11 @@ export function getMatches(uid){
             value = snapshot.val();
         }
     })
+
+    if(value == null){
+        return ""
+    }
+
     return getInfo(value[0]);
 }
 
@@ -90,6 +122,7 @@ export async function userMatching(uid) {
     
     var userDict = makeMap(db);
     // console.log(userDict)
+    let user = getInfo(uid);
     let userScore = userDict[uid];
     // console.log(userScore)
     var closestUser; // stores the closest scores uid to the original
@@ -97,9 +130,29 @@ export async function userMatching(uid) {
     let current = [];
     let count = 0;
     for(const [key, val] of Object.entries(userDict)){
+        let dontAdd = false;
         // console.log(key);
         if(key != uid){
-            current.push({key:key, val:Math.abs(userScore - val)})
+            if(user['PosMatches'] != null && user['PosMatches'] != []){
+                for(const match of user['PosMatches']){
+                    if(match == key){
+                        dontAdd = true;
+                        break;
+                    }
+                }
+                if(!dontAdd){(current.push({key:key, val:Math.abs(userScore - val)}))};
+            } else if(user['Matches'] != null && user['Matches'] != []){
+                for(const match of user['Matches']){
+                    if(match == key){
+                        dontAdd = true;
+                    }
+                }
+                if(!dontAdd){(current.push({key:key, val:Math.abs(userScore - val)}))};
+            }
+            else{
+                current.push({key:key, val:Math.abs(userScore - val)})
+
+            }
         }
     }
     current.sort((a, b)=>{

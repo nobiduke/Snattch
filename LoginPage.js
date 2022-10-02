@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import {login} from './firebase_create';
 import {signOn} from './firebase_signin';
-import {View, Text, TextInput, Button, StyleSheet, Image} from 'react-native';
+import {View, Text, TextInput, Button, StyleSheet, Image, ScrollView} from 'react-native';
 
 export default function LoginPage({auth, next}) {
   const [username, changeUsername] = useState(auth.currentUser==null?null:auth.currentUser.email);
@@ -33,7 +33,7 @@ export default function LoginPage({auth, next}) {
       fontSize:25
     },
     holder:{
-      display: 'grid',
+      flex: 1,
       justifyContent:'center',
       alignItems:'center'
     },
@@ -55,13 +55,13 @@ export default function LoginPage({auth, next}) {
   })
 
   return (
-    <View style={styles.holder}>
+    <ScrollView contentContainerStyle={styles.holder}>
         <Image style={styles.image} source={require("./assets/logoResize.png")}></Image>
         <Text style={styles.title}>Log In</Text>
         <TextInput style={styles.loginBoxes} onChangeText={changeUsername} value={username} placeholder='Email'></TextInput>
         <TextInput style={styles.loginBoxes} onChangeText={changePassword} value={password} placeholder='Password'></TextInput>
         <Button style={styles.loginButtons} title='Sign In' onPress={()=>{signOn(auth, username, password, setTrigger)}}></Button>
         <Button style={styles.loginButtons} title='Create Account' onPress={()=>{login(auth, username, password, setTrigger)}}></Button>
-    </View>
+    </ScrollView>
   )
 }

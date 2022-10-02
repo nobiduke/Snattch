@@ -22,10 +22,10 @@ export default function Profile({auth, next}) {
   return (
     <View>
         <Text style={styles.text}>
-          Matches
+          {person==""||person==null?"No Matches":"Matches"}
         </Text>
         <Text style={styles.text}>
-          Name: {person.Name}, Age: {person.Age}, Gender: {person.Gender}
+          {person==""||person==null?"":`Name: ${person.Name}, Age: ${person.Age}, Gender: ${person.Gender}`}
         </Text>
         <Button title='Sign Out' onPress={()=>{next(4); auth.signOut();}}></Button>
     </View>
